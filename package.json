@@ -2,20 +2,25 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "digup-launcher",
   "title": "DigUp",
-  "description": "Open DigUp search from Raycast.",
-  "version": "1.0.0",
+  "description": "Search your DigUp index from Raycast.",
+  "version": "1.1.0",
   "type": "module",
   "icon": "icon.png",
   "author": "Eotel",
   "license": "MIT",
-  "platforms": ["macOS"],
-  "categories": ["Applications", "Productivity"],
+  "platforms": [
+    "macOS"
+  ],
+  "categories": [
+    "Applications",
+    "Productivity"
+  ],
   "commands": [
     {
-      "name": "open-search",
-      "title": "Search with DigUp",
-      "description": "Open DigUp search",
-      "mode": "no-view"
+      "name": "search-files",
+      "title": "Search DigUp",
+      "description": "Search indexed files and open a result",
+      "mode": "view"
     }
   ],
   "preferences": [
@@ -26,6 +31,20 @@
       "type": "textfield",
       "required": false,
       "placeholder": "/Applications/DigUp.app"
+    },
+    {
+      "name": "indexPath",
+      "title": "Index Path",
+      "description": "DigUp index folder, if you use a custom location.",
+      "type": "textfield",
+      "required": false
+    },
+    {
+      "name": "modelsPath",
+      "title": "Models Path",
+      "description": "DigUp models folder, if you use a custom location.",
+      "type": "textfield",
+      "required": false
     }
   ],
   "scripts": {
@@ -34,11 +53,13 @@
     "lint": "ray lint"
   },
   "dependencies": {
-    "@raycast/api": "2.8.0"
+    "@raycast/api": "2.8.0",
+    "react": "19.0.0"
   },
   "devDependencies": {
     "@raycast/eslint-config": "2.2.0",
     "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
     "typescript": "5.9.3"
   }
 }
